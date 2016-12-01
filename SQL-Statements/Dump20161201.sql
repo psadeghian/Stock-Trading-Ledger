@@ -76,7 +76,7 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`cpses_pa6luZSN6z`@`localhost`*/ /*!50003 TRIGGER `panamo5_csci332`.`accounts_BEFORE_INSERT` BEFORE INSERT ON `accounts` FOR EACH ROW
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `panamo5_csci332`.`accounts_BEFORE_INSERT` BEFORE INSERT ON `accounts` FOR EACH ROW
 BEGIN
 	call before_insert_on_accounts(new.primary_client_id);
     -- Do any other code here you may want to occur if it's all OK or leave blank it will be
@@ -235,7 +235,7 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`cpses_pa6luZSN6z`@`localhost` FUNCTION `num_accounts_under_client_id`(input_primary_client_id INT(10)) RETURNS int(11)
+CREATE DEFINER=`root`@`localhost` FUNCTION `num_accounts_under_client_id`(input_primary_client_id INT(10)) RETURNS int(11)
 BEGIN
 RETURN (select count(*) from accounts where primary_client_id = input_primary_client_id);
 END ;;
@@ -254,7 +254,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`cpses_pa6luZSN6z`@`localhost` PROCEDURE `before_insert_on_accounts`(IN input_primary_client_id int(10))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `before_insert_on_accounts`(IN input_primary_client_id int(10))
 BEGIN
     DECLARE msg VARCHAR(255);
     IF (num_accounts_under_client_id(input_primary_client_id)>4) THEN
@@ -281,4 +281,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-12-01  6:05:27
+-- Dump completed on 2016-12-01  7:37:41
