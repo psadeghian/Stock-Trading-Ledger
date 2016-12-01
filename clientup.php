@@ -1,3 +1,6 @@
+<head>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
 <?php
 require 'dbconnect.php';
 $sql = "update clients "; 

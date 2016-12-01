@@ -1,3 +1,6 @@
+<head>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
 <?php
 $mysqli = new mysqli('127.0.0.1', 'panamo5_root', 'root1234', 'panamo5_csci332');
 

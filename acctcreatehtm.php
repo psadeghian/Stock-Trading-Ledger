@@ -1,3 +1,6 @@
+<head>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
 <form action="acctcreate.php">
   Primary Client ID:
  <select name="primary_client_id">

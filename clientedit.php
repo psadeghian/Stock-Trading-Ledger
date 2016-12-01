@@ -1,3 +1,6 @@
+<head>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
 <form action="clientup.php">
   First name:
   <input type="text" name="first_name" value="<?php echo $_REQUEST["first_name"] ?>">
