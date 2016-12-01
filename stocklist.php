@@ -3,7 +3,7 @@ require 'menu.php';
 
 require 'dbconnect.php';
 
-$sql = "SELECT * FROM stocks";
+$sql = "SELECT * FROM stocks ORDER BY " . $_REQUEST["order_by"];
 if (!$result = $mysqli->query($sql)) {
     echo "Error: Query error, here is why: </br>";
     echo "Errno: " . $mysqli->errno . "</br>";
@@ -11,22 +11,22 @@ if (!$result = $mysqli->query($sql)) {
     exit;
 }
 echo "<table border=1>
-<th>Ticker</th>
-<th>Open</th>
-<th>High</th>
-<th>Low</th>
-<th>Market Cap</th>
-<th>Trade Time</th>
-<th>Average Volume</th>
-<th>PE</th>
-<th>EPS</th>
-<th>High 52</th>
-<th>Low 52</th>
-<th>Change</th>
-<th>Beta</th>
-<th>Change pct</th>
-<th>Yesterday Close</th>
-<th>Shares</th>";
+<th><a href=stocklist.php?order_by=ticker>Ticker</a></th>
+<th><a href=stocklist.php?order_by=priceopen>Open</a></th>
+<th><a href=stocklist.php?order_by=high>High</a></th>
+<th><a href=stocklist.php?order_by=low>Low</a></th>
+<th><a href=stocklist.php?order_by=marketcap>Market Cap</a></th>
+<th><a href=stocklist.php?order_by=tradetime>Trade Time</a></th>
+<th><a href=stocklist.php?order_by=volumeavg>Avg Volume</a></th>
+<th><a href=stocklist.php?order_by=pe>PE</a></th>
+<th><a href=stocklist.php?order_by=eps>EPS</a></th>
+<th><a href=stocklist.php?order_by=high52>High 52</a></th>
+<th><a href=stocklist.php?order_by=low52>Low 52</a></th>
+<th><a href=stocklist.php?order_by=change>Change</a></th>
+<th><a href=stocklist.php?order_by=beta>Beta</a></th>
+<th><a href=stocklist.php?order_by=changepct>Change PCT</a></th>
+<th><a href=stocklist.php?order_by=closeyest>Close Yesterday</a></th>
+<th><a href=stocklist.php?order_by=shares>Shares</a></th>";
 while($stock = $result->fetch_assoc())
    echo "<tr><td>"
    . $stock["ticker"] . "</td><td>" 
