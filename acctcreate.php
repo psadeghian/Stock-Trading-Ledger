@@ -14,5 +14,5 @@ if (!$result = $mysqli->query($sql)) {
 ?>
 
 <script>
-window.location = 'dbconnect.php';
+window.location = 'acctlist.php';
 </script>

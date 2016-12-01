@@ -1,7 +1,32 @@
 <?php
+require 'menu.php';
 require 'dbconnect.php';
 
-$sql = "DELETE FROM clients where client_id = " . $_REQUEST["client_id"];
+$sql = "DELETE FROM balances WHERE account_number = " . $_REQUEST["account_number"];
+if (!$result = $mysqli->query($sql)) {
+    echo "Error: Query error, here is why: </br>";
+    echo "Errno: " . $mysqli->errno . "</br>";
+    echo "Error: " . $mysqli->error . "</br>";
+    exit;
+}
+
+$sql = "DELETE FROM equity_transactions WHERE account_number = " . $_REQUEST["account_number"];
+if (!$result = $mysqli->query($sql)) {
+    echo "Error: Query error, here is why: </br>";
+    echo "Errno: " . $mysqli->errno . "</br>";
+    echo "Error: " . $mysqli->error . "</br>";
+    exit;
+}
+
+$sql = "DELETE FROM account_assns where account_number = " . $_REQUEST["account_number"];
+if (!$result = $mysqli->query($sql)) {
+    echo "Error: Query error, here is why: </br>";
+    echo "Errno: " . $mysqli->errno . "</br>";
+    echo "Error: " . $mysqli->error . "</br>";
+    exit;
+}
+
+$sql = "DELETE FROM accounts where account_number = " . $_REQUEST["account_number"];
 if (!$result = $mysqli->query($sql)) {
     echo "Error: Query error, here is why: </br>";
     echo "Errno: " . $mysqli->errno . "</br>";
@@ -12,5 +37,5 @@ if (!$result = $mysqli->query($sql)) {
 ?>
 
 <script>
-window.location = 'clientlist.php';
+window.location = 'acctlist.php';
 </script>

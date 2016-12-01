@@ -15,7 +15,7 @@ echo "<table border=1><th>Account Number</th><th>Date Created</th><th>Primary Cl
 while($account = $result->fetch_assoc())
    echo "<tr><td>" . $account["account_number"] . "</td><td>" . $account["date_created"] .
       "</td><td>" .$account["primary_client_id"] . 
-      "</td><td><a href='accountdelete.php?account_number=" . $account["account_number"] . "'>Del</a> " .
+      "</td><td><a href='acctdelete.php?account_number=" . $account["account_number"] . "'>Del</a> " .
       "</td></tr>";
 echo "</table>";
 
