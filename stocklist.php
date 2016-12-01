@@ -28,22 +28,22 @@ echo "<table border=1>
 <th>Yesterday Close</th>
 <th>Shares</th>";
 while($stock = $result->fetch_assoc())
-   echo "<tr><td height=60>"
-   . $stock["ticker"] . "</td><td height=60>" 
-   . $stock["priceopen"] ."</td><td height=60>" 
-   . $stock["high"] . "</td><td height=60>" 
-   . $stock["low"] . "</td><td height=60>" 
-   . $stock["marketcap"] . "</td><td height=60>" 
-   . $stock["tradetime"] . "</td><td height=60>" 
-   . $stock["volumeavg"] . "</td><td height=60>" 
-   . $stock["pe"] . "</td><td height=60>" 
-   . $stock["eps"] . "</td><td height=60>" 
-   . $stock["high52"] . "</td><td height=60>" 
-   . $stock["low52"] . "</td><td height=60>" 
-   . $stock["change"] . "</td><td height=60>" 
-   . $stock["beta"] . "</td><td height=60>" 
-   . $stock["changepct"] . "</td><td height=60>" 
-   . $stock["closeyest"] . "</td><td height=60>" 
+   echo "<tr><td>"
+   . $stock["ticker"] . "</td><td>" 
+   . $stock["priceopen"] ."</td><td>" 
+   . $stock["high"] . "</td><td>" 
+   . $stock["low"] . "</td><td>" 
+   . $stock["marketcap"] . "</td><td>" 
+   . $stock["tradetime"] . "</td><td>" 
+   . $stock["volumeavg"] . "</td><td>" 
+   . $stock["pe"] . "</td><td>" 
+   . $stock["eps"] . "</td><td>" 
+   . $stock["high52"] . "</td><td>" 
+   . $stock["low52"] . "</td><td>" 
+   . $stock["change"] . "</td><td>" 
+   . $stock["beta"] . "</td><td>" 
+   . $stock["changepct"] . "</td><td>" 
+   . $stock["closeyest"] . "</td><td>" 
    . $stock["shares"] . "</td></tr>";
 echo "</table>";
 
