@@ -1,19 +1,19 @@
 <?php
 require 'dbconnect.php';
 
-$sql = "SELECT * FROM clients order by last_name,first_name";
+$sql = "SELECT * FROM accounts order by account_number";
 if (!$result = $mysqli->query($sql)) {
     echo "Error: Query error, here is why: </br>";
     echo "Errno: " . $mysqli->errno . "</br>";
     echo "Error: " . $mysqli->error . "</br>";
     exit;
 }
-while($client = $result->fetch_assoc()) {
+while($row = $result->fetch_assoc()) {
 //  
  echo "<option ";
- if($_REQUEST["primary_client_id"] == $client["client_id"])
+ if($_REQUEST["account_number"] == $row["account_number"])
    echo "selected "; 
- echo "value='" . $client["client_id"] . "'>" . $client["first_name"] . " " . $client["last_name"] .
+ echo "value='" . $row["account_number"] . "'>" . $row["account_number"] .
       "</option>";
 }
 ?>
