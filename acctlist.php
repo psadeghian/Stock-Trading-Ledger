@@ -20,7 +20,7 @@ while($account = $result->fetch_assoc())
       "</td><td>" .$account["primary_client_id"] . 
       "</td><td><a href='acctdelete.php?account_number=" . $account["account_number"] . "'>Del</a> " .
       "<a href='accttransactions.php?account_number=" . $account["account_number"] . "'>Transactions</a> " .
-      "<a href='acctbalances.php?account_number=" . $account["account_number"] . "'>Balances</a> " .
+      "<a href='acctbalances.php?account_number=" . $account["account_number"] . "'>Summary and Balances</a> " .
       "</td></tr>";
 echo "</table>";
 

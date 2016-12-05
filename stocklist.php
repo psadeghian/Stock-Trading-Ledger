@@ -1,3 +1,7 @@
+<?php
+    // Start the session
+    session_start();
+?>
 <head>
 <link rel="stylesheet" type="text/css" href="style.css">
 </head>
@@ -6,30 +10,37 @@ require 'menu.php';
 
 require 'dbconnect.php';
 
-$sql = "SELECT * FROM stocks ORDER BY " . $_REQUEST["order_by"];
+if ($_SESSION["asc_desc"] == "ASC"){
+    $_SESSION["asc_desc"] = "DESC";
+}
+else{
+    $_SESSION["asc_desc"] = "ASC";
+}
+$sql = "SELECT * FROM `stocks` ORDER BY " . $_REQUEST["order_by"] . " " . $_SESSION["asc_desc"];
 if (!$result = $mysqli->query($sql)) {
     echo "Error: Query error, here is why: </br>";
     echo "Errno: " . $mysqli->errno . "</br>";
     echo "Error: " . $mysqli->error . "</br>";
+    echo $sql;
     exit;
 }
 echo "<table border=1>
-<th><a href=stocklist.php?order_by=ticker>Ticker</a></th>
-<th><a href=stocklist.php?order_by=priceopen>Open</a></th>
-<th><a href=stocklist.php?order_by=high>High</a></th>
-<th><a href=stocklist.php?order_by=low>Low</a></th>
-<th><a href=stocklist.php?order_by=marketcap>Market Cap</a></th>
-<th><a href=stocklist.php?order_by=tradetime>Trade Time</a></th>
-<th><a href=stocklist.php?order_by=volumeavg>Avg Volume</a></th>
-<th><a href=stocklist.php?order_by=pe>PE</a></th>
-<th><a href=stocklist.php?order_by=eps>EPS</a></th>
-<th><a href=stocklist.php?order_by=high52>High 52</a></th>
-<th><a href=stocklist.php?order_by=low52>Low 52</a></th>
-<th><a href=stocklist.php?order_by=change>Change</a></th>
-<th><a href=stocklist.php?order_by=beta>Beta</a></th>
-<th><a href=stocklist.php?order_by=changepct>Change PCT</a></th>
-<th><a href=stocklist.php?order_by=closeyest>Close Yesterday</a></th>
-<th><a href=stocklist.php?order_by=shares>Shares</a></th>";
+<th><a href=stocklist.php?order_by=`ticker`>Ticker</a></th>
+<th><a href=stocklist.php?order_by=`priceopen`>Open</a></th>
+<th><a href=stocklist.php?order_by=`high`>High</a></th>
+<th><a href=stocklist.php?order_by=`low`>Low</a></th>
+<th><a href=stocklist.php?order_by=`marketcap`>Market Cap</a></th>
+<th><a href=stocklist.php?order_by=`tradetime`>Trade Time</a></th>
+<th><a href=stocklist.php?order_by=`volumeavg`>Avg Volume</a></th>
+<th><a href=stocklist.php?order_by=`pe`>PE</a></th>
+<th><a href=stocklist.php?order_by=`eps`>EPS</a></th>
+<th><a href=stocklist.php?order_by=`high52`>High 52</a></th>
+<th><a href=stocklist.php?order_by=`low52`>Low 52</a></th>
+<th><a href=stocklist.php?order_by=`change`>Change</a></th>
+<th><a href=stocklist.php?order_by=`beta`>Beta</a></th>
+<th><a href=stocklist.php?order_by=`changepct`>Change PCT</a></th>
+<th><a href=stocklist.php?order_by=`closeyest`>Close Yesterday</a></th>
+<th><a href=stocklist.php?order_by=`shares`>Shares</a></th>";
 while($stock = $result->fetch_assoc())
    echo "<tr><td>"
    . $stock["ticker"] . "</td><td>" 

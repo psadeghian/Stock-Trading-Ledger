@@ -30,6 +30,7 @@ while($client = $result->fetch_assoc())
       "&phone=" . $client["phone"] . "&birth_date=" . $client["birth_date"] . 
       "&sex=" . $client["sex"] . "&date_entered=" . $client["date_entered"] . 
       "'>Edit</a>" .
+      " <a href='clientsummary.php?client_id=" . $client["client_id"] . "'>Summary</a> " .
       "</td></tr>";
 echo "</table>";
 

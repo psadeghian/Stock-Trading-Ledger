@@ -1,8 +1,11 @@
+<?php
+    session_start();
+?>
 <head>
 <link rel="stylesheet" type="text/css" href="style.css">
 <script>
 try {
-    function myFunction() {
+    function updatePricePerShare() {
         var ticker_element = document.getElementById("ticker");
         ticker_element.value = ticker_element.value.toUpperCase();
         var ticker = ticker_element.value
@@ -39,15 +42,18 @@ catch(err){
     </select>
     <br>
     Ticker Symbol:
-    <input type="text" name="ticker" id="ticker" onblur="myFunction()" required="required">
+    <input type="text" name="ticker" id="ticker" onblur="updatePricePerShare()" required="required">
     <br>
     Number of Shares:
     <input type="number" name="shares" required="required" >
     <br>
     Price Per Shares:
-    <input type="number" name="price_per_share" id="price_per_share" required="required" >
+    <input type="number" step="any" name="price_per_share" id="price_per_share" required="required" >
     <br>
-    
+    Comment:
+    <input type="text" name="comment" id="comment">
+    <br>
+    Submit
     <input type="submit" value="Submit">
     </form>
     <?php
@@ -63,6 +69,10 @@ catch(err){
             array_push($return_arr,$row);
         }
         return json_encode($return_arr); 
+        }
+        if ($_SESSION["transaction_success"] == true) {
+            $_SESSION["transaction_success"] = false;
+            echo "<p id='success_message' class='message'> Transaction recorded! </p>";
         }
       ?>
 </body>
