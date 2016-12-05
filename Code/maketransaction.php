@@ -20,7 +20,7 @@ function insert_transaction($account_number, $transaction_type,
     $sql .= "'" . $shares . "', ";
     $sql .= "'" . $price_per_share . "', ";
     $sql .= "'" . $ticker . "', ";
-    $sql .= "NULL ";
+    $sql .= "NULL, ";
     $sql .= "'" . $comment . "'";
     $sql .= ")";
 
