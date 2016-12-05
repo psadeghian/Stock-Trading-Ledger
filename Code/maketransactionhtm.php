@@ -8,7 +8,7 @@ try {
     function updatePricePerShare() {
         var ticker_element = document.getElementById("ticker");
         ticker_element.value = ticker_element.value.toUpperCase();
-        var ticker = ticker_element.value
+        var ticker = ticker_element.value;
         var json_obj = <?php echo selection_functions() ?>; 
         // iterate over each element in the array
         for (var i = 0; i < json_obj.length; i++){
