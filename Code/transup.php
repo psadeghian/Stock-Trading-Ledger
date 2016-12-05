@@ -17,5 +17,5 @@ if (!$result = $mysqli->query($sql)) {
 ?>
 
 <script>
-//window.location = 'transedit.php';
+window.location = 'transedit.php';
 </script>
