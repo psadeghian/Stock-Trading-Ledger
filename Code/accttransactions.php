@@ -6,7 +6,8 @@ require 'menu.php';
 
 require 'dbconnect.php';
 
-$sql = "SELECT transaction_date, transaction_type, shares, price_per_share, ticker, transaction_id FROM equity_transactions WHERE account_number = " . $_REQUEST["account_number"];
+$sql = "SELECT `transaction_date`, `transaction_type`, `shares`, `price_per_share`, `ticker`, `transaction_id`, 
+`comment` FROM `equity_transactions` WHERE `account_number` = '" . $_REQUEST["account_number"] . "'";
 if (!$result = $mysqli->query($sql)) {
     echo "Error: Query error, here is why: </br>";
     echo "Errno: " . $mysqli->errno . "</br>";
@@ -39,6 +40,7 @@ while($row = $result->fetch_assoc())
    . "&transaction_id=" . $row["transaction_id"]
    . "&comment=" . $row["comment"] . "'>Edit Comment</a> " .
       "</td></tr>";
+    echo $row["comment"];
 echo "</table>";
 
 
