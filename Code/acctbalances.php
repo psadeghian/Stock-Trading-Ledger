@@ -14,7 +14,7 @@ if (!$result = $mysqli->query($sql)) {
     echo "Error: " . $mysqli->error . "</br>";
     exit;
 }
-echo "<table border=1><th>Overall Market Value Of Account" . $_REQUEST["account_number"] . "</th>";
+echo "<table border=1><th>Overall Market Value Of Account " . $_REQUEST["account_number"] . "</th>";
 while($row = $result->fetch_assoc())
    echo "<tr><td>" . $row["overall_total"] .
       "</td></tr>";
