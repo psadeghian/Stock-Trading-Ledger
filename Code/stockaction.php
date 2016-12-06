@@ -46,7 +46,7 @@ function update_stocks($ticker, $price, $priceopen, $high, $low, $marketcap, $tr
   , `low` = '" . $low . "' 
   , `marketcap` = '" . $marketcap . "' 
   , `tradetime` = '" . $tradetime . "' 
-  , `volumeavg` = '" . $volumeavgprice . "' 
+  , `volumeavg` = '" . $volumeavg . "' 
   , `pe` = '" . $pe . "' 
   , `eps` = '" . $eps . "' 
   , `high52` = '" . $high52 . "' 
