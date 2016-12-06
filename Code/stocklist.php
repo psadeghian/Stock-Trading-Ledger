@@ -26,7 +26,6 @@
     function setReadOnly(){
         clearFields();
         var action = document.getElementById("action").value;
-        document.getElementById("par1").innerHTML = action;
         if (action == "add"){
             document.getElementById("price").readOnly = false;
             document.getElementById("priceopen").readOnly = false;
